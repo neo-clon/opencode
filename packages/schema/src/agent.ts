@@ -36,16 +36,7 @@ export const Info = Schema.Struct({
   .pipe(
     statics((schema) => ({
       empty: (id: ID) =>
-        schema.make({
-          id,
-          request: { headers: {}, body: {} },
-          mode: "all",
-          hidden: false,
-          permissions: [
-            { action: "*", resource: "*", effect: "allow" },
-            { action: "external_directory", resource: "*", effect: "ask" },
-          ],
-        }),
+        schema.make({ id, request: { headers: {}, body: {} }, mode: "all", hidden: false, permissions: [] }),
     })),
   )
 
